@@ -1,4 +1,4 @@
-import { IParsedPerson, IParsedPlanet, IPerson, IPlanet } from "./types"
+import { IFilm, IParsedFilm, IParsedPerson, IParsedPlanet, IParsedSpecies, IParsedStarship, IParsedVehicle, IPerson, IPlanet, ISpecies, IStarship, IVehicle } from "./types"
 
 const parseLink = async (link: string) => {
     const data = await fetch(link).then((res) => res.json())
@@ -42,6 +42,58 @@ export const parsePerson = async (person: IPerson): Promise<IParsedPerson> => {
         species,
         vehicles,
         starships
+    }
+}
+
+export const parseSpecies = async (species: ISpecies): Promise<IParsedSpecies> => {
+    const homeworld = await parseLink(species.homeworld)
+    const films = await parseLinks(species.films)
+    const people = await parseLinks(species.people)
+        
+    return {
+        ...species,
+        homeworld,
+        films,
+        people
+    }
+}
+
+export const parseVehicle = async (vehicle: IVehicle): Promise<IParsedVehicle> => {
+    const films = await parseLinks(vehicle.films)
+    const pilots = await parseLinks(vehicle.pilots)
+
+    return {
+        ...vehicle,
+        films,
+        pilots
+    }
+}
+
+export const parseStarship = async (starship: IStarship): Promise<IParsedStarship> => {
+    const films = await parseLinks(starship.films)
+    const pilots = await parseLinks(starship.pilots)
+
+    return {
+        ...starship,
+        films,
+        pilots
+    }
+}
+
+export const parseFilm = async (film: IFilm): Promise<IParsedFilm> => {
+    const characters = await parseLinks(film.characters)
+    const planets = await parseLinks(film.planets)
+    const species = await parseLinks(film.species)
+    const starships = await parseLinks(film.starships)
+    const vehicles = await parseLinks(film.vehicles)
+
+    return {
+        ...film,
+        characters,
+        planets,
+        species,
+        starships,
+        vehicles
     }
 }
 
