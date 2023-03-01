@@ -1,7 +1,7 @@
 import { IPlanet } from '@/src/types'
 import { fetchAll } from '@/src/utils'
 import { NextPage } from 'next'
-import { NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 
 interface IPage {
