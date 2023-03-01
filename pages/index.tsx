@@ -17,7 +17,7 @@ const Home: NextPage<IPage> = ({ planets }) => {
   if (!planets) return <div>Loading...</div>
 
   return (
-    <div className="container mx-auto mt-4">
+    <div className="container mx-auto px-2 mt-4">
       <NextSeo 
         title="Planets of Star Wars"
         description="A list of planets in the Star Wars universe"
