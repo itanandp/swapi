@@ -17,7 +17,7 @@ const StarshipPage: NextPage<IProps> = ({ starship }) => {
   }
 
   return (
-    <div>
+    <div className='container mx-auto mt-4'>
       <h1 className="text-4xl font-bold mb-4">{starship.name}</h1>
         <p>Model: {starship.model}</p>
         <p>Starship Class: {starship.starship_class}</p>

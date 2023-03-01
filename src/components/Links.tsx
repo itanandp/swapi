@@ -9,8 +9,8 @@ export default function Links ({ links }: Props) {
     if (!links.length) return (<span>None</span>)
     
     return (
-        <span>
-            {links.map((link: IParsedUrl) => (<Link key={link.url} href={link.url}>{link.name}</Link>))}
-        </span>
+        <div className="flex flex-col mx-4">
+            {links.map((link: IParsedUrl) => (<Link key={link.url} href={link.url} className="text-blue-500 hover:text-blue-700">{link.name}</Link>))}
+        </div>
     )
 }

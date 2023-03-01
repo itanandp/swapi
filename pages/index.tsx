@@ -16,7 +16,7 @@ const Home: NextPage<IPage> = ({ planets }) => {
   if (!planets) return <div>Loading...</div>
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-4">
       <ul>
         {planets.map((planet: IPlanet) => (
           <li key={planet.url}>

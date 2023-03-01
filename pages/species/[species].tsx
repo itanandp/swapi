@@ -17,7 +17,7 @@ const SpeciesPage: NextPage<IProps> = ({ species }) => {
   }
 
   return (
-    <div>
+    <div className='container mx-auto mt-4'>
         <h1 className="text-4xl font-bold mb-4">{species.name}</h1>
         <p>Classification: {species.classification}</p>
         <p>Designation: {species.designation}</p>
@@ -27,7 +27,7 @@ const SpeciesPage: NextPage<IProps> = ({ species }) => {
         <p>Hair Colors: {species.hair_colors}</p>
         <p>Skin Colors: {species.skin_colors}</p>
         <p>Language: {species.language}</p>
-        <p>Homeworld: <Link href={species.homeworld.url}>{species.homeworld.name}</Link></p>
+        <p>Homeworld: <Link className="text-blue-500 hover:text-blue-700" href={species.homeworld.url}>{species.homeworld.name}</Link></p>
         <p>People: <Links links={species.people} /></p>
         <p>Films: <Links links={species.films} /></p>
     </div>

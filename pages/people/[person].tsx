@@ -17,7 +17,7 @@ const PersonPage: NextPage<IProps> = ({ person }) => {
   }
 
   return (
-    <div>
+    <div className='container mx-auto mt-4'>
       <h1 className="text-4xl font-bold mb-4">{person.name}</h1>
       <p>Birth Year: {person.birth_year}</p>
       <p>Eye Color: {person.eye_color}</p>
@@ -26,7 +26,7 @@ const PersonPage: NextPage<IProps> = ({ person }) => {
       <p>Height: {person.height}</p>
       <p>Mass: {person.mass}</p>
       <p>Skin Color: {person.skin_color}</p>
-      <p>Homeworld: <Link href={person.homeworld.url}>{person.homeworld.name}</Link></p>
+      <p>Homeworld: <Link className="text-blue-500 hover:text-blue-700" href={person.homeworld.url}>{person.homeworld.name}</Link></p>
       <p>Films: <Links links={person.films} /></p>
       <p>Species: <Links links={person.species} /></p>
       <p>Vehicles: <Links links={person.vehicles} /></p>

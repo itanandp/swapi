@@ -17,7 +17,7 @@ const VehiclePage: NextPage<IProps> = ({ vehicle }) => {
   }
 
   return (
-    <div>
+    <div className='container mx-auto mt-4'>
         <h1 className="text-4xl font-bold mb-4">{vehicle.name}</h1>
         <p>Model: {vehicle.model}</p>
         <p>Vehicle Class: {vehicle.vehicle_class}</p>

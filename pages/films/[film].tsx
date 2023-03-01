@@ -17,7 +17,7 @@ const FilmPage: NextPage<IProps> = ({ film }) => {
   }
 
   return (
-    <div>
+    <div className='container mx-auto mt-4'>
         <h1 className="text-4xl font-bold mb-4">{film.title}</h1>
         <p>Episode ID: {film.episode_id}</p>
         <p>Opening Crawl: {film.opening_crawl}</p>
