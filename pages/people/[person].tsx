@@ -9,19 +9,6 @@ interface IProps {
   person: IParsedPerson;
 }
 
-const renderLinks = (links: IParsedUrl[]) => {
-  const components = links.map((link: IParsedUrl) => {
-    return (
-      <p key={link.url}>
-        <Link href={link.url}>{link.name}</Link>
-      </p>
-    )
-  })
-
-  return components
-}
-
-
 const PersonPage: NextPage<IProps> = ({ person }) => {
   const router = useRouter()
 
@@ -39,11 +26,11 @@ const PersonPage: NextPage<IProps> = ({ person }) => {
       <p>Height: {person.height}</p>
       <p>Mass: {person.mass}</p>
       <p>Skin Color: {person.skin_color}</p>
-      <Link href={person.homeworld.url}>{person.homeworld.name}</Link>
-      <Links links={person.films} />
-      {renderLinks(person.species)}
-      {renderLinks(person.vehicles)}
-      {renderLinks(person.starships)}
+      <p>Homeworld: <Link href={person.homeworld.url}>{person.homeworld.name}</Link></p>
+      <p>Films: <Links links={person.films} /></p>
+      <p>Species: <Links links={person.species} /></p>
+      <p>Vehicles: <Links links={person.vehicles} /></p>
+      <p>Starships: <Links links={person.starships} /></p>
     </div>
   )
 }

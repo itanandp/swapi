@@ -27,8 +27,8 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
       <p>Climate: {planet.climate}</p>
       <p>Terrain: {planet.terrain}</p>
       <p>Surface Water: {planet.surface_water}</p>
-      <Links links={planet.residents} />
-      <Links links={planet.films} />
+      <p>Residents: <Links links={planet.residents} /></p>
+      <p>Films: <Links links={planet.films} /></p>
     </div>
   )
 }

@@ -6,9 +6,11 @@ interface Props {
 }
 
 export default function Links ({ links }: Props) {
+    if (!links.length) return (<span>None</span>)
+    
     return (
-        <div>
+        <span>
             {links.map((link: IParsedUrl) => (<Link key={link.url} href={link.url}>{link.name}</Link>))}
-        </div>
+        </span>
     )
 }
