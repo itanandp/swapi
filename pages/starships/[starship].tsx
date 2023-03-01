@@ -2,6 +2,7 @@ import Links from '@/src/components/Links'
 import { IParsedStarship, IStarship } from '@/src/types'
 import { fetchAll, parseStarship } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 interface IProps {
@@ -17,6 +18,10 @@ const StarshipPage: NextPage<IProps> = ({ starship }) => {
 
   return (
     <div className='container mx-auto mt-4'>
+      <NextSeo
+        title={starship.name}
+        description={starship.name}
+      />
       <h1 className="text-4xl font-bold mb-4">{starship.name}</h1>
       <p>Model: {starship.model}</p>
       <p>Starship Class: {starship.starship_class}</p>

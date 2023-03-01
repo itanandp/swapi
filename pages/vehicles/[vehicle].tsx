@@ -2,6 +2,7 @@ import Links from '@/src/components/Links'
 import { IParsedVehicle, IVehicle } from '@/src/types'
 import { fetchAll, parseVehicle } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 interface IProps {
@@ -17,6 +18,10 @@ const VehiclePage: NextPage<IProps> = ({ vehicle }) => {
 
   return (
     <div className='container mx-auto mt-4'>
+      <NextSeo
+        title={vehicle.name}
+        description={vehicle.name}
+      />
       <h1 className="text-4xl font-bold mb-4">{vehicle.name}</h1>
       <p>Model: {vehicle.model}</p>
       <p>Vehicle Class: {vehicle.vehicle_class}</p>

@@ -2,6 +2,7 @@ import Links from '@/src/components/Links'
 import { IParsedPlanet, IPlanet } from '@/src/types'
 import { fetchAll, parsePlanet } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 interface IProps {
@@ -17,6 +18,10 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
 
   return (
     <div className="container mx-auto mt-4">
+      <NextSeo
+        title={planet.name}
+        description={planet.name}
+      />
       <h1 className="text-4xl font-bold mb-4">{planet.name}</h1>
       <p>Diameter: {planet.diameter} km</p>
       <p>Rotation period: {planet.rotation_period} std. hours</p>

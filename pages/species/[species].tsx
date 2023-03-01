@@ -3,6 +3,7 @@ import Links from '@/src/components/Links'
 import { IParsedSpecies, ISpecies } from '@/src/types'
 import { fetchAll, parseSpecies } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 interface IProps {
@@ -18,6 +19,10 @@ const SpeciesPage: NextPage<IProps> = ({ species }) => {
 
   return (
     <div className='container mx-auto mt-4'>
+      <NextSeo
+        title={species.name}
+        description={species.name}
+      />
       <h1 className="text-4xl font-bold mb-4">{species.name}</h1>
       <p>Classification: {species.classification}</p>
       <p>Designation: {species.designation}</p>

@@ -3,6 +3,7 @@ import Links from '@/src/components/Links'
 import { IParsedPerson, IPerson } from '@/src/types'
 import { fetchAll, parsePerson } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 interface IProps {
@@ -18,6 +19,10 @@ const PersonPage: NextPage<IProps> = ({ person }) => {
 
   return (
     <div className='container mx-auto mt-4'>
+      <NextSeo 
+        title={person.name}
+        description={person.name}
+      />
       <h1 className="text-4xl font-bold mb-4">{person.name}</h1>
       <p>Birth Year: {person.birth_year}</p>
       <p>Eye Color: {person.eye_color}</p>

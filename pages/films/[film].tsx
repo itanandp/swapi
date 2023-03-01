@@ -2,6 +2,7 @@ import Links from '@/src/components/Links'
 import { IFilm, IParsedFilm } from '@/src/types'
 import { fetchAll, parseFilm } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 
 interface IProps {
@@ -17,6 +18,10 @@ const FilmPage: NextPage<IProps> = ({ film }) => {
 
   return (
     <div className='container mx-auto mt-4'>
+      <NextSeo 
+        title={film.title}
+        description={film.opening_crawl}
+      />
       <h1 className="text-4xl font-bold mb-4">{film.title}</h1>
       <p>Episode ID: {film.episode_id}</p>
       <div>Opening Crawl: <p className='p-4 text-yellow-500 italic'>{film.opening_crawl}</p></div>
