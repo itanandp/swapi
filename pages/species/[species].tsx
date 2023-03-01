@@ -18,18 +18,18 @@ const SpeciesPage: NextPage<IProps> = ({ species }) => {
 
   return (
     <div className='container mx-auto mt-4'>
-        <h1 className="text-4xl font-bold mb-4">{species.name}</h1>
-        <p>Classification: {species.classification}</p>
-        <p>Designation: {species.designation}</p>
-        <p>Average Height: {species.average_height}</p>
-        <p>Average Lifespan: {species.average_lifespan}</p>
-        <p>Eye Colors: {species.eye_colors}</p>
-        <p>Hair Colors: {species.hair_colors}</p>
-        <p>Skin Colors: {species.skin_colors}</p>
-        <p>Language: {species.language}</p>
-        <p>Homeworld: <Link className="text-blue-500 hover:text-blue-700" href={species.homeworld.url}>{species.homeworld.name}</Link></p>
-        <p>People: <Links links={species.people} /></p>
-        <p>Films: <Links links={species.films} /></p>
+      <h1 className="text-4xl font-bold mb-4">{species.name}</h1>
+      <p>Classification: {species.classification}</p>
+      <p>Designation: {species.designation}</p>
+      <p>Average Height: {species.average_height}</p>
+      <p>Average Lifespan: {species.average_lifespan}</p>
+      <p>Eye Colors: {species.eye_colors}</p>
+      <p>Hair Colors: {species.hair_colors}</p>
+      <p>Skin Colors: {species.skin_colors}</p>
+      <p>Language: {species.language}</p>
+      <p>Homeworld: <Link className="text-blue-500 hover:text-blue-700" href={species.homeworld.url}>{species.homeworld.name}</Link></p>
+      <p>People: <Links links={species.people} /></p>
+      <p>Films: <Links links={species.films} /></p>
     </div>
   )
 }
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const toFetch = params?.species
   const res = await fetch(`https://swapi.dev/api/species/${toFetch}`)
   const species = await res.json()
-const parsedSpecies = await parseSpecies(species)
+  const parsedSpecies = await parseSpecies(species)
 
   return { props: { species: parsedSpecies } }
 }

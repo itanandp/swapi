@@ -24,7 +24,7 @@ const Home: NextPage<IPage> = ({ planets }) => {
             <div>
               <Link className="text-blue-500 hover:text-blue-700" href={`${planet.url.split('https://swapi.dev/api')[1]}`}>{planet.name}</Link>
             </div>         
-            </li>
+          </li>
         ))}
       </ul>
     </div>

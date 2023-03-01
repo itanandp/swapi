@@ -18,19 +18,19 @@ const VehiclePage: NextPage<IProps> = ({ vehicle }) => {
 
   return (
     <div className='container mx-auto mt-4'>
-        <h1 className="text-4xl font-bold mb-4">{vehicle.name}</h1>
-        <p>Model: {vehicle.model}</p>
-        <p>Vehicle Class: {vehicle.vehicle_class}</p>
-        <p>Manufacturer: {vehicle.manufacturer}</p>
-        <p>Length: {vehicle.length}</p>
-        <p>Cost in Credits: {vehicle.cost_in_credits}</p>
-        <p>Crew: {vehicle.crew}</p>
-        <p>Passengers: {vehicle.passengers}</p>
-        <p>Max Atmosphering Speed: {vehicle.max_atmosphering_speed}</p>
-        <p>Cargo Capacity: {vehicle.cargo_capacity}</p>
-        <p>Consumables: {vehicle.consumables}</p>
-        <p>Pilots: <Links links={vehicle.pilots} /></p>
-        <p>Films: <Links links={vehicle.films} /></p>
+      <h1 className="text-4xl font-bold mb-4">{vehicle.name}</h1>
+      <p>Model: {vehicle.model}</p>
+      <p>Vehicle Class: {vehicle.vehicle_class}</p>
+      <p>Manufacturer: {vehicle.manufacturer}</p>
+      <p>Length: {vehicle.length}</p>
+      <p>Cost in Credits: {vehicle.cost_in_credits}</p>
+      <p>Crew: {vehicle.crew}</p>
+      <p>Passengers: {vehicle.passengers}</p>
+      <p>Max Atmosphering Speed: {vehicle.max_atmosphering_speed}</p>
+      <p>Cargo Capacity: {vehicle.cargo_capacity}</p>
+      <p>Consumables: {vehicle.consumables}</p>
+      <p>Pilots: <Links links={vehicle.pilots} /></p>
+      <p>Films: <Links links={vehicle.films} /></p>
     </div>
   )
 }
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const toFetch = params?.vehicle
   const res = await fetch(`https://swapi.dev/api/vehicles/${toFetch}`)
   const vehicle = await res.json()
-    const parsedVehicle = await parseVehicle(vehicle)
+  const parsedVehicle = await parseVehicle(vehicle)
 
   return { props: { vehicle: parsedVehicle } }
 }

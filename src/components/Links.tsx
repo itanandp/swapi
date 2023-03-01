@@ -6,17 +6,17 @@ interface Props {
 }
 
 export default function Links({ links }: Props) {
-    if (!links.length) return (<span>None</span>)
+  if (!links.length) return (<span>None</span>)
 
-    return (
-        <div className="flex flex-col">
-            {links.map((link: IParsedUrl) => {
-                return (
-                    <div>
-                        <Link key={link.url} href={link.url} className="text-blue-500 hover:text-blue-700">{link.name}</Link>
-                    </div>
-                )
-            })}
-        </div>
-    )
+  return (
+    <div className="flex flex-col">
+      {links.map((link: IParsedUrl) => {
+        return (
+          <div key={link.url}>
+            <Link href={link.url} className="text-blue-500 hover:text-blue-700">{link.name}</Link>
+          </div>
+        )
+      })}
+    </div>
+  )
 }

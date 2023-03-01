@@ -19,20 +19,20 @@ const StarshipPage: NextPage<IProps> = ({ starship }) => {
   return (
     <div className='container mx-auto mt-4'>
       <h1 className="text-4xl font-bold mb-4">{starship.name}</h1>
-        <p>Model: {starship.model}</p>
-        <p>Starship Class: {starship.starship_class}</p>
-        <p>Manufacturer: {starship.manufacturer}</p>
-        <p>Cost in Credits: {starship.cost_in_credits}</p>
-        <p>Length: {starship.length}</p>
-        <p>Crew: {starship.crew}</p>
-        <p>Passengers: {starship.passengers}</p>
-        <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
-        <p>Hyperdrive Rating: {starship.hyperdrive_rating}</p>
-        <p>MGLT: {starship.MGLT}</p>
-        <p>Cargo Capacity: {starship.cargo_capacity}</p>
-        <p>Consumables: {starship.consumables}</p>
-        <p>Pilots: <Links links={starship.pilots} /></p>
-        <p>Films: <Links links={starship.films} /></p>
+      <p>Model: {starship.model}</p>
+      <p>Starship Class: {starship.starship_class}</p>
+      <p>Manufacturer: {starship.manufacturer}</p>
+      <p>Cost in Credits: {starship.cost_in_credits}</p>
+      <p>Length: {starship.length}</p>
+      <p>Crew: {starship.crew}</p>
+      <p>Passengers: {starship.passengers}</p>
+      <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
+      <p>Hyperdrive Rating: {starship.hyperdrive_rating}</p>
+      <p>MGLT: {starship.MGLT}</p>
+      <p>Cargo Capacity: {starship.cargo_capacity}</p>
+      <p>Consumables: {starship.consumables}</p>
+      <p>Pilots: <Links links={starship.pilots} /></p>
+      <p>Films: <Links links={starship.films} /></p>
     </div>
   )
 }

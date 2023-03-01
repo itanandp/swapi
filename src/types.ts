@@ -149,7 +149,7 @@ export interface IParsedVehicle {
     edited: string;
   }
   
-  export interface IStarship {
+export interface IStarship {
     name: string;
     model: string;
     starship_class: string;
@@ -169,7 +169,7 @@ export interface IParsedVehicle {
     created: string;
     edited: string;
   }
-  export interface IParsedStarship {
+export interface IParsedStarship {
     name: string;
     model: string;
     starship_class: string;
@@ -190,7 +190,7 @@ export interface IParsedVehicle {
     edited: string;
   }
   
-  export interface IFilm {
+export interface IFilm {
     title: string;
     episode_id: number;
     opening_crawl: string;
@@ -206,7 +206,7 @@ export interface IParsedVehicle {
     created: string;
     edited: string;
   }
-  export interface IParsedFilm {
+export interface IParsedFilm {
     title: string;
     episode_id: number;
     opening_crawl: string;
