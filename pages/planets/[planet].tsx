@@ -28,6 +28,7 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
       <p>Terrain: {planet.terrain}</p>
       <p>Surface Water: {planet.surface_water}</p>
       <Links links={planet.residents} />
+      <Links links={planet.films} />
     </div>
   );
 };
