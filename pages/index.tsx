@@ -1,7 +1,7 @@
-import { IPlanet } from '@/src/types';
-import { fetchAll } from '@/src/utils';
-import { NextPage } from 'next';
-import Link from 'next/link';
+import { IPlanet } from '@/src/types'
+import { fetchAll } from '@/src/utils'
+import { NextPage } from 'next'
+import Link from 'next/link'
 
 interface IPage {
   planets: IPlanet[];
@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
 }
 
 const Home: NextPage<IPage> = ({ planets }) => {
-  if (!planets) return <div>Loading...</div>;
+  if (!planets) return <div>Loading...</div>
 
   return (
     <div className="container mx-auto">
@@ -27,7 +27,7 @@ const Home: NextPage<IPage> = ({ planets }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

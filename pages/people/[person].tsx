@@ -1,9 +1,9 @@
-import Links from '@/src/components/Links';
-import { IParsedPerson, IParsedUrl, IPerson } from '@/src/types';
-import { fetchAll, parsePerson } from '@/src/utils';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Links from '@/src/components/Links'
+import { IParsedPerson, IParsedUrl, IPerson } from '@/src/types'
+import { fetchAll, parsePerson } from '@/src/utils'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface IProps {
   person: IParsedPerson;
@@ -23,10 +23,10 @@ const renderLinks = (links: IParsedUrl[]) => {
 
 
 const PersonPage: NextPage<IProps> = ({ person }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
@@ -45,26 +45,26 @@ const PersonPage: NextPage<IProps> = ({ person }) => {
       {renderLinks(person.vehicles)}
       {renderLinks(person.starships)}
     </div>
-  );
-};
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await fetchAll('people')
 
   const paths = data.map((person: IPerson) => ({
     params: { person: person.url.split('/').slice(-2)[0] },
-  }));
+  }))
 
-  return { paths, fallback: true };
-};
+  return { paths, fallback: true }
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const toFetch = params?.person;
-  const res = await fetch(`https://swapi.dev/api/people/${toFetch}`);
-  const person = await res.json();
+  const toFetch = params?.person
+  const res = await fetch(`https://swapi.dev/api/people/${toFetch}`)
+  const person = await res.json()
   const parsedPerson = await parsePerson(person)
 
-  return { props: { person: parsedPerson } };
-};
+  return { props: { person: parsedPerson } }
+}
 
-export default PersonPage;
+export default PersonPage
