@@ -26,8 +26,8 @@ const parseNumber = (number: string) => {
 export const parsePlanet = async (planet: IPlanet): Promise<IParsedPlanet> => {
   const films = await parseLinks(planet.films)
   const residents = await parseLinks(planet.residents)
-  const diameter = Number(planet.diameter).toLocaleString()
-  const population = Number(planet.population).toLocaleString()
+  const diameter = parseNumber(planet.diameter)
+  const population = parseNumber(planet.population)
 
   return {
     ...planet,
@@ -120,13 +120,13 @@ export const parseFilm = async (film: IFilm): Promise<IParsedFilm> => {
 }
 
 export const fetchAll = async (type: string) => {
-  let planets: any = []
+  let items: any = []
   let url = `https://swapi.dev/api/${type}/`
 
   while (url) {
     const res = await fetch(url).then((res) => res.json())
-    planets = planets.concat(res.results)
+    items = items.concat(res.results)
     url = res.next
   }
-  return planets
+  return items
 }
