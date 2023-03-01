@@ -21,11 +21,15 @@ const parseLinks = async (links: string[]) => {
 export const parsePlanet = async (planet: IPlanet): Promise<IParsedPlanet> => {
   const films = await parseLinks(planet.films)
   const residents = await parseLinks(planet.residents)
+  const diameter = Number(planet.diameter).toLocaleString()
+  const population = Number(planet.population).toLocaleString()
 
   return {
     ...planet,
     films,
-    residents
+    residents,
+    diameter,
+    population
   }
 }
 
@@ -62,22 +66,28 @@ export const parseSpecies = async (species: ISpecies): Promise<IParsedSpecies> =
 export const parseVehicle = async (vehicle: IVehicle): Promise<IParsedVehicle> => {
   const films = await parseLinks(vehicle.films)
   const pilots = await parseLinks(vehicle.pilots)
+  const cost_in_credits = Number(vehicle.cost_in_credits).toLocaleString()
 
   return {
     ...vehicle,
     films,
-    pilots
+    pilots,
+    cost_in_credits
   }
 }
 
 export const parseStarship = async (starship: IStarship): Promise<IParsedStarship> => {
   const films = await parseLinks(starship.films)
   const pilots = await parseLinks(starship.pilots)
+  const cost_in_credits = Number(starship.cost_in_credits).toLocaleString()
+  const cargo_capacity = Number(starship.cargo_capacity).toLocaleString()
 
   return {
     ...starship,
     films,
-    pilots
+    pilots,
+    cost_in_credits,
+    cargo_capacity
   }
 }
 

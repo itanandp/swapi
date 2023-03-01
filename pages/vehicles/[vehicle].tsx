@@ -23,7 +23,7 @@ const VehiclePage: NextPage<IProps> = ({ vehicle }) => {
       <p>Vehicle Class: {vehicle.vehicle_class}</p>
       <p>Manufacturer: {vehicle.manufacturer}</p>
       <p>Length: {vehicle.length} meters</p>
-      <p>Cost in Credits: {Number(vehicle.cost_in_credits).toLocaleString()} Galactic Credits</p>
+      <p>Cost in Credits: {vehicle.cost_in_credits} Galactic Credits</p>
       <p>Crew: {vehicle.crew}</p>
       <p>Passengers: {vehicle.passengers}</p>
       <p>Max Atmosphering Speed: {vehicle.max_atmosphering_speed} km/hour</p>
