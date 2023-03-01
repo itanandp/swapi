@@ -1,4 +1,5 @@
 import { IPlanet } from '@/src/types';
+import { fetchAll } from '@/src/utils';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
@@ -6,20 +7,8 @@ interface IPage {
   planets: IPlanet[];
 }
 
-const fetchAllPlanets = async () => {
-  let planets: any = [];
-  let url = 'https://swapi.dev/api/planets';
-
-  while (url) {
-    const res = await fetch(url).then((res) => res.json());
-    planets = planets.concat(res.results);
-    url = res.next;
-  }
-  return planets
-};
-
 export const getStaticProps = async () => {
-  const planets = await fetchAllPlanets()
+  const planets = await fetchAll('planets')
   return { props: { planets } }
 }
 

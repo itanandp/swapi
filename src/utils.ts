@@ -1,4 +1,4 @@
-export const parseLink = async (link: string) => {
+const parseLink = async (link: string) => {
     const data = await fetch(link).then((res) => res.json());
     const parts = link.split('https://swapi.dev/api');
 
@@ -8,7 +8,7 @@ export const parseLink = async (link: string) => {
     return ({ name, url })
 }
 
-export const parseLinks = async (links: string[]) => {
+const parseLinks = async (links: string[]) => {
     const promises = links.map((link) => parseLink(link));
     const data = await Promise.all(promises);
 
@@ -25,3 +25,15 @@ export const parsePlanet = async (planet: any) => {
         residents
     }
 }
+
+export const fetchAll = async (type: string) => {
+  let planets: any = [];
+  let url = `https://swapi.dev/api/${type}/`
+
+  while (url) {
+    const res = await fetch(url).then((res) => res.json());
+    planets = planets.concat(res.results);
+    url = res.next;
+  }
+  return planets
+};

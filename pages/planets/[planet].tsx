@@ -1,5 +1,5 @@
 import { IParsedPlanet, parsedUrl } from '@/src/types';
-import { parsePlanet } from '@/src/utils';
+import { fetchAll, parsePlanet } from '@/src/utils';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -38,10 +38,9 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('https://swapi.dev/api/planets');
-  const data = await res.json();
+  const data = await fetchAll('planets')
 
-  const paths = data.results.map((planet: any) => ({
+  const paths = data.map((planet: any) => ({
     params: { planet: planet.url.split('/').slice(-2)[0] },
   }));
 
