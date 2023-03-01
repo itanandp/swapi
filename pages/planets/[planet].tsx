@@ -1,4 +1,5 @@
-import { IParsedPlanet, parsedUrl } from '@/src/types';
+import Links from '@/src/components/Links';
+import { IParsedPlanet, IParsedUrl, IPlanet } from '@/src/types';
 import { fetchAll, parsePlanet } from '@/src/utils';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
@@ -26,13 +27,7 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
       <p>Climate: {planet.climate}</p>
       <p>Terrain: {planet.terrain}</p>
       <p>Surface Water: {planet.surface_water}</p>
-      {planet?.residents?.map((resident: parsedUrl) => {
-        return (
-          <p key={resident.url}>
-            <Link href={resident.url}>{resident.name}</Link>
-          </p>
-        )
-      })}
+      <Links links={planet.residents} />
     </div>
   );
 };
@@ -40,7 +35,7 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await fetchAll('planets')
 
-  const paths = data.map((planet: any) => ({
+  const paths = data.map((planet: IPlanet) => ({
     params: { planet: planet.url.split('/').slice(-2)[0] },
   }));
 

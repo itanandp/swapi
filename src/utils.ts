@@ -1,3 +1,5 @@
+import { IParsedPerson, IParsedPlanet, IPerson, IPlanet } from "./types";
+
 const parseLink = async (link: string) => {
     const data = await fetch(link).then((res) => res.json());
     const parts = link.split('https://swapi.dev/api');
@@ -15,7 +17,7 @@ const parseLinks = async (links: string[]) => {
     return data;
 }
 
-export const parsePlanet = async (planet: any) => {
+export const parsePlanet = async (planet: IPlanet): Promise<IParsedPlanet> => {
     const films = await parseLinks(planet.films);
     const residents = await parseLinks(planet.residents);
 
@@ -23,6 +25,23 @@ export const parsePlanet = async (planet: any) => {
         ...planet,
         films,
         residents
+    }
+}
+
+export const parsePerson = async (person: IPerson): Promise<IParsedPerson> => {
+    const homeworld = await parseLink(person.homeworld);
+    const films = await parseLinks(person.films);
+    const species = await parseLinks(person.species);
+    const vehicles = await parseLinks(person.vehicles);
+    const starships = await parseLinks(person.starships);
+
+    return {
+        ...person,
+        homeworld,
+        films,
+        species,
+        vehicles,
+        starships
     }
 }
 
