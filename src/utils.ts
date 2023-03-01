@@ -16,13 +16,11 @@ export const parseLinks = async (links: string[]) => {
 }
 
 export const parsePlanet = async (planet: any) => {
-    const url = await parseLink(planet.url);
     const films = await parseLinks(planet.films);
     const residents = await parseLinks(planet.residents);
 
     return {
         ...planet,
-        url,
         films,
         residents
     }
