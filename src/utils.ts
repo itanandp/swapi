@@ -73,13 +73,15 @@ export const parseVehicle = async (vehicle: IVehicle): Promise<IParsedVehicle> =
   const pilots = await parseLinks(vehicle.pilots)
   const cost_in_credits = parseNumber(vehicle.cost_in_credits)
   const cargo_capacity = parseNumber(vehicle.cargo_capacity)
+  const max_atmosphering_speed = parseNumber(vehicle.max_atmosphering_speed)
 
   return {
     ...vehicle,
     films,
     pilots,
     cost_in_credits,
-    cargo_capacity
+    cargo_capacity,
+    max_atmosphering_speed
   }
 }
 
@@ -88,13 +90,15 @@ export const parseStarship = async (starship: IStarship): Promise<IParsedStarshi
   const pilots = await parseLinks(starship.pilots)
   const cost_in_credits = parseNumber(starship.cost_in_credits)
   const cargo_capacity = parseNumber(starship.cargo_capacity)
+  const max_atmosphering_speed = parseNumber(starship.max_atmosphering_speed)
 
   return {
     ...starship,
     films,
     pilots,
     cost_in_credits,
-    cargo_capacity
+    cargo_capacity,
+    max_atmosphering_speed
   }
 }
 
