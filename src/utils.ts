@@ -1,6 +1,7 @@
 import { IFilm, IParsedFilm, IParsedPerson, IParsedPlanet, IParsedSpecies, IParsedStarship, IParsedVehicle, IPerson, IPlanet, ISpecies, IStarship, IVehicle } from "./types"
 
 const parseLink = async (link: string) => {
+    if (!link) return ({ name: 'n/a', url: '/' })
     const data = await fetch(link).then((res) => res.json())
     const parts = link.split('https://swapi.dev/api')
 
