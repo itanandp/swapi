@@ -19,14 +19,14 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
   return (
     <div className="container mx-auto mt-4">
       <h1 className="text-4xl font-bold mb-4">{planet.name}</h1>
-      <p>Diameter: {planet.diameter}</p>
-      <p>Rotation period: {planet.rotation_period}</p>
-      <p>Orbital period: {planet.orbital_period}</p>
-      <p>Gravity: {planet.gravity}</p>
-      <p>Population: {planet.population}</p>
+      <p>Diameter: {Number(planet.diameter).toLocaleString()} km</p>
+      <p>Rotation period: {planet.rotation_period} std. hours</p>
+      <p>Orbital period: {planet.orbital_period} std. days</p>
+      <p>Gravity: {planet.gravity} Gs</p>
+      <p>Population: {Number(planet.population).toLocaleString()} sentient lifeforms</p>
       <p>Climate: {planet.climate}</p>
       <p>Terrain: {planet.terrain}</p>
-      <p>Surface Water: {planet.surface_water}</p>
+      <p>Surface Water: {planet.surface_water}%</p>
       <p>Residents: <Links links={planet.residents} /></p>
       <p>Films: <Links links={planet.films} /></p>
     </div>

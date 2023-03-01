@@ -1,3 +1,4 @@
+import FormattedLink from '@/src/components/FormattedLink'
 import Links from '@/src/components/Links'
 import { IParsedPlanet, IParsedSpecies, IPlanet, ISpecies } from '@/src/types'
 import { fetchAll, parsePlanet, parseSpecies } from '@/src/utils'
@@ -21,13 +22,13 @@ const SpeciesPage: NextPage<IProps> = ({ species }) => {
       <h1 className="text-4xl font-bold mb-4">{species.name}</h1>
       <p>Classification: {species.classification}</p>
       <p>Designation: {species.designation}</p>
-      <p>Average Height: {species.average_height}</p>
-      <p>Average Lifespan: {species.average_lifespan}</p>
+      <p>Average Height: {species.average_height} cm</p>
+      <p>Average Lifespan: {species.average_lifespan} std. years</p>
       <p>Eye Colors: {species.eye_colors}</p>
       <p>Hair Colors: {species.hair_colors}</p>
       <p>Skin Colors: {species.skin_colors}</p>
       <p>Language: {species.language}</p>
-      <p>Homeworld: <Link className="text-blue-500 hover:text-blue-700" href={species.homeworld.url}>{species.homeworld.name}</Link></p>
+      <p>Homeworld: <FormattedLink url={species.homeworld.url} name={species.homeworld.name} /></p>
       <p>People: <Links links={species.people} /></p>
       <p>Films: <Links links={species.films} /></p>
     </div>
