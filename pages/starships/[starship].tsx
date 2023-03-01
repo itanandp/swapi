@@ -1,8 +1,7 @@
 import Links from '@/src/components/Links'
-import { IParsedPerson, IParsedStarship, IParsedUrl, IPerson, IStarship } from '@/src/types'
-import { fetchAll, parsePerson, parseStarship } from '@/src/utils'
+import { IParsedStarship, IStarship } from '@/src/types'
+import { fetchAll, parseStarship } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface IProps {

@@ -1,9 +1,8 @@
 import FormattedLink from '@/src/components/FormattedLink'
 import Links from '@/src/components/Links'
-import { IParsedPlanet, IParsedSpecies, IPlanet, ISpecies } from '@/src/types'
-import { fetchAll, parsePlanet, parseSpecies } from '@/src/utils'
+import { IParsedSpecies, ISpecies } from '@/src/types'
+import { fetchAll, parseSpecies } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface IProps {

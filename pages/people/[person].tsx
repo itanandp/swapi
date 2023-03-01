@@ -1,9 +1,8 @@
 import FormattedLink from '@/src/components/FormattedLink'
 import Links from '@/src/components/Links'
-import { IParsedPerson, IParsedUrl, IPerson } from '@/src/types'
+import { IParsedPerson, IPerson } from '@/src/types'
 import { fetchAll, parsePerson } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface IProps {

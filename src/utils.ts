@@ -18,6 +18,11 @@ const parseLinks = async (links: string[]) => {
   return data
 }
 
+const parseNumber = (number: string) => {
+  if (number === 'unknown') return 'n/a'
+  return Number(number).toLocaleString()
+}
+
 export const parsePlanet = async (planet: IPlanet): Promise<IParsedPlanet> => {
   const films = await parseLinks(planet.films)
   const residents = await parseLinks(planet.residents)
@@ -66,21 +71,23 @@ export const parseSpecies = async (species: ISpecies): Promise<IParsedSpecies> =
 export const parseVehicle = async (vehicle: IVehicle): Promise<IParsedVehicle> => {
   const films = await parseLinks(vehicle.films)
   const pilots = await parseLinks(vehicle.pilots)
-  const cost_in_credits = Number(vehicle.cost_in_credits).toLocaleString()
+  const cost_in_credits = parseNumber(vehicle.cost_in_credits)
+  const cargo_capacity = parseNumber(vehicle.cargo_capacity)
 
   return {
     ...vehicle,
     films,
     pilots,
-    cost_in_credits
+    cost_in_credits,
+    cargo_capacity
   }
 }
 
 export const parseStarship = async (starship: IStarship): Promise<IParsedStarship> => {
   const films = await parseLinks(starship.films)
   const pilots = await parseLinks(starship.pilots)
-  const cost_in_credits = Number(starship.cost_in_credits).toLocaleString()
-  const cargo_capacity = Number(starship.cargo_capacity).toLocaleString()
+  const cost_in_credits = parseNumber(starship.cost_in_credits)
+  const cargo_capacity = parseNumber(starship.cargo_capacity)
 
   return {
     ...starship,

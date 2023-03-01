@@ -1,8 +1,7 @@
 import Links from '@/src/components/Links'
-import { IFilm, IParsedFilm, IParsedPerson, IParsedUrl, IPerson } from '@/src/types'
-import { fetchAll, parseFilm, parsePerson } from '@/src/utils'
+import { IFilm, IParsedFilm } from '@/src/types'
+import { fetchAll, parseFilm } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface IProps {

@@ -1,8 +1,7 @@
 import Links from '@/src/components/Links'
-import { IParsedPlanet, IParsedSpecies, IParsedVehicle, IPlanet, ISpecies, IVehicle } from '@/src/types'
-import { fetchAll, parsePlanet, parseSpecies, parseVehicle } from '@/src/utils'
+import { IParsedVehicle, IVehicle } from '@/src/types'
+import { fetchAll, parseVehicle } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface IProps {

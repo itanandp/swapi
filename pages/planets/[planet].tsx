@@ -2,7 +2,6 @@ import Links from '@/src/components/Links'
 import { IParsedPlanet, IPlanet } from '@/src/types'
 import { fetchAll, parsePlanet } from '@/src/utils'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface IProps {
