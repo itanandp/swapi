@@ -8,7 +8,7 @@ interface Props {
 export default function Links ({ links }: Props) {
     return (
         <div>
-            {links.map((link: IParsedUrl) => (<Link href={link.url}>{link.name}</Link>))}
+            {links.map((link: IParsedUrl) => (<Link key={link.url} href={link.url}>{link.name}</Link>))}
         </div>
     )
 }
