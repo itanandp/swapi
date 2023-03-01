@@ -17,13 +17,14 @@ const Home: NextPage<IPage> = ({ planets }) => {
 
   return (
     <div className="container mx-auto mt-4">
+      <h1 className="text-4xl font-bold text-yellow-400 mb-10">Planets of Star Wars</h1>
       <ul>
         {planets.map((planet: IPlanet) => (
           <li key={planet.url}>
-            <Link href={`${planet.url.split('https://swapi.dev/api')[1]}`}>
-              <p className="text-blue-500 hover:text-blue-700">{planet.name}</p>
-            </Link>
-          </li>
+            <div>
+              <Link className="text-blue-500 hover:text-blue-700" href={`${planet.url.split('https://swapi.dev/api')[1]}`}>{planet.name}</Link>
+            </div>         
+            </li>
         ))}
       </ul>
     </div>
