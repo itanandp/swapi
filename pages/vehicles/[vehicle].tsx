@@ -17,24 +17,36 @@ const VehiclePage: NextPage<IProps> = ({ vehicle }) => {
   }
 
   return (
-    <div className='container mx-auto px-2 mt-4'>
+    <div className="container mx-auto px-2 mt-4 text-white">
       <NextSeo
         title={vehicle.name}
         description={vehicle.name}
       />
-      <h1 className="text-4xl font-bold mb-4">{vehicle.name}</h1>
-      <p>Model: {vehicle.model}</p>
-      <p>Vehicle Class: {vehicle.vehicle_class}</p>
-      <p>Manufacturer: {vehicle.manufacturer}</p>
-      <p>Length: {vehicle.length} meters</p>
-      <p>Cost in Credits: {vehicle.cost_in_credits} Galactic Credits</p>
-      <p>Crew: {vehicle.crew}</p>
-      <p>Passengers: {vehicle.passengers}</p>
-      <p>Max Atmosphering Speed: {vehicle.max_atmosphering_speed} km/hour</p>
-      <p>Cargo Capacity: {vehicle.cargo_capacity} kg</p>
-      <p>Consumables: {vehicle.consumables}</p>
-      <p>Pilots: <Links links={vehicle.pilots} /></p>
-      <p>Films: <Links links={vehicle.films} /></p>
+      <h1 className="text-4xl font-bold text-yellow-400 mb-4">{vehicle.name}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">General Information</p>
+          <ul className="list-disc list-inside">
+            <li>Model: {vehicle.model}</li>
+            <li>Vehicle Class: {vehicle.vehicle_class}</li>
+            <li>Manufacturer: {vehicle.manufacturer}</li>
+            <li>Length: {vehicle.length} meters</li>
+            <li>Cost in Credits: {vehicle.cost_in_credits} Galactic Credits</li>
+            <li>Crew: {vehicle.crew}</li>
+            <li>Passengers: {vehicle.passengers}</li>
+            <li>Max Atmosphering Speed: {vehicle.max_atmosphering_speed} km/hour</li>
+            <li>Cargo Capacity: {vehicle.cargo_capacity} kg</li>
+            <li>Consumables: {vehicle.consumables}</li>
+          </ul>
+        </div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">Related Information</p>
+          <div className="list-disc list-inside">
+            <div>Pilots: <Links links={vehicle.pilots} /></div>
+            <div>Films: <Links links={vehicle.films} /></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

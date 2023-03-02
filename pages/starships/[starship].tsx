@@ -17,26 +17,38 @@ const StarshipPage: NextPage<IProps> = ({ starship }) => {
   }
 
   return (
-    <div className='container mx-auto px-2 mt-4'>
+    <div className="container mx-auto px-2 mt-4 text-white">
       <NextSeo
         title={starship.name}
         description={starship.name}
       />
-      <h1 className="text-4xl font-bold mb-4">{starship.name}</h1>
-      <p>Model: {starship.model}</p>
-      <p>Starship Class: {starship.starship_class}</p>
-      <p>Manufacturer: {starship.manufacturer}</p>
-      <p>Cost in Credits: {starship.cost_in_credits} Galactic Credits</p>
-      <p>Length: {starship.length} meters</p>
-      <p>Crew: {starship.crew}</p>
-      <p>Passengers: {starship.passengers}</p>
-      <p>Max Atmosphering Speed: {starship.max_atmosphering_speed} km/hour</p>
-      <p>Hyperdrive Rating: {starship.hyperdrive_rating} class</p>
-      <p>MGLT: {starship.MGLT} megalights/hour</p>
-      <p>Cargo Capacity: {starship.cargo_capacity} kg</p>
-      <p>Consumables: {starship.consumables}</p>
-      <p>Pilots: <Links links={starship.pilots} /></p>
-      <p>Films: <Links links={starship.films} /></p>
+      <h1 className="text-4xl font-bold text-yellow-400 mb-4">{starship.name}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">General Information</p>
+          <ul className="list-disc list-inside">
+            <li>Model: {starship.model}</li>
+            <li>Starship Class: {starship.starship_class}</li>
+            <li>Manufacturer: {starship.manufacturer}</li>
+            <li>Cost in Credits: {starship.cost_in_credits} Galactic Credits</li>
+            <li>Length: {starship.length} meters</li>
+            <li>Crew: {starship.crew}</li>
+            <li>Passengers: {starship.passengers}</li>
+            <li>Max Atmosphering Speed: {starship.max_atmosphering_speed} km/hour</li>
+            <li>Hyperdrive Rating: {starship.hyperdrive_rating} class</li>
+            <li>MGLT: {starship.MGLT} megalights/hour</li>
+            <li>Cargo Capacity: {starship.cargo_capacity} kg</li>
+            <li>Consumables: {starship.consumables}</li>
+          </ul>
+        </div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">Related Information</p>
+          <div className="list-disc list-inside">
+            <div>Pilots: <Links links={starship.pilots} /></div>
+            <div>Films: <Links links={starship.films} /></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

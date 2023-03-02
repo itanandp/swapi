@@ -18,24 +18,36 @@ const PersonPage: NextPage<IProps> = ({ person }) => {
   }
 
   return (
-    <div className='container mx-auto px-2 mt-4'>
-      <NextSeo 
+    <div className="container mx-auto px-2 mt-4 text-white">
+      <NextSeo
         title={person.name}
         description={person.name}
       />
-      <h1 className="text-4xl font-bold mb-4">{person.name}</h1>
-      <p>Birth Year: {person.birth_year}</p>
-      <p>Eye Color: {person.eye_color}</p>
-      <p>Gender: {person.gender}</p>
-      <p>Hair color: {person.hair_color}</p>
-      <p>Height: {person.height} cm</p>
-      <p>Mass: {person.mass} kg</p>
-      <p>Skin Color: {person.skin_color}</p>
-      <p>Homeworld: <FormattedLink name={person.homeworld.name} url={person.homeworld.url}/></p>
-      <p>Films: <Links links={person.films} /></p>
-      <p>Species: <Links links={person.species} /></p>
-      <p>Vehicles: <Links links={person.vehicles} /></p>
-      <p>Starships: <Links links={person.starships} /></p>
+      <h1 className="text-4xl font-bold text-yellow-400 mb-4">{person.name}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">General Information</p>
+          <ul className="list-disc list-inside">
+            <li>Birth Year: {person.birth_year}</li>
+            <li>Eye Color: {person.eye_color}</li>
+            <li>Gender: {person.gender}</li>
+            <li>Hair color: {person.hair_color}</li>
+            <li>Height: {person.height} cm</li>
+            <li>Mass: {person.mass} kg</li>
+            <li>Skin Color: {person.skin_color}</li>
+          </ul>
+        </div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">Related Information</p>
+          <div className="list-disc list-inside">
+            <div>Homeworld: <FormattedLink name={person.homeworld.name} url={person.homeworld.url}/></div>
+            <div>Films: <Links links={person.films} /></div>
+            <div>Species: <Links links={person.species} /></div>
+            <div>Vehicles: <Links links={person.vehicles} /></div>
+            <div>Starships: <Links links={person.starships} /></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

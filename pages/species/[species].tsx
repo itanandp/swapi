@@ -23,18 +23,30 @@ const SpeciesPage: NextPage<IProps> = ({ species }) => {
         title={species.name}
         description={species.name}
       />
-      <h1 className="text-4xl font-bold mb-4">{species.name}</h1>
-      <p>Classification: {species.classification}</p>
-      <p>Designation: {species.designation}</p>
-      <p>Average Height: {species.average_height} cm</p>
-      <p>Average Lifespan: {species.average_lifespan} std. years</p>
-      <p>Eye Colors: {species.eye_colors}</p>
-      <p>Hair Colors: {species.hair_colors}</p>
-      <p>Skin Colors: {species.skin_colors}</p>
-      <p>Language: {species.language}</p>
-      <p>Homeworld: <FormattedLink url={species.homeworld.url} name={species.homeworld.name} /></p>
-      <p>People: <Links links={species.people} /></p>
-      <p>Films: <Links links={species.films} /></p>
+      <h1 className="text-4xl font-bold text-yellow-400 mb-4">{species.name}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">General Information</p>
+          <ul className="list-disc list-inside">
+            <li>Classification: {species.classification}</li>
+            <li>Designation: {species.designation}</li>
+            <li>Average Height: {species.average_height} cm</li>
+            <li>Average Lifespan: {species.average_lifespan} std. years</li>
+            <li>Eye Colors: {species.eye_colors}</li>
+            <li>Hair Colors: {species.hair_colors}</li>
+            <li>Skin Colors: {species.skin_colors}</li>
+            <li>Language: {species.language}</li>
+          </ul>
+        </div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">Related Information</p>
+          <div className="list-disc list-inside">
+            <div>Homeworld: <FormattedLink url={species.homeworld.url} name={species.homeworld.name} /></div>
+            <div>People: <Links links={species.people} /></div>
+            <div>Films: <Links links={species.films} /></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

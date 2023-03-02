@@ -17,22 +17,34 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
   }
 
   return (
-    <div className="container mx-auto px-2 mt-4">
+    <div className="container mx-auto px-2 mt-4 text-white">
       <NextSeo
         title={planet.name}
         description={planet.name}
       />
-      <h1 className="text-4xl font-bold mb-4">{planet.name}</h1>
-      <p>Diameter: {planet.diameter} km</p>
-      <p>Rotation period: {planet.rotation_period} std. hours</p>
-      <p>Orbital period: {planet.orbital_period} std. days</p>
-      <p>Gravity: {planet.gravity} Gs</p>
-      <p>Population: {planet.population} sentient lifeforms</p>
-      <p>Climate: {planet.climate}</p>
-      <p>Terrain: {planet.terrain}</p>
-      <p>Surface Water: {planet.surface_water}</p>
-      <p>Residents: <Links links={planet.residents} /></p>
-      <p>Films: <Links links={planet.films} /></p>
+      <h1 className="text-4xl font-bold text-yellow-400 mb-4">{planet.name}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">General Information</p>
+          <ul className="list-disc list-inside">
+            <li>Diameter: {planet.diameter} km</li>
+            <li>Rotation period: {planet.rotation_period} std. hours</li>
+            <li>Orbital period: {planet.orbital_period} std. days</li>
+            <li>Gravity: {planet.gravity} Gs</li>
+            <li>Population: {planet.population} sentient lifeforms</li>
+            <li>Climate: {planet.climate}</li>
+            <li>Terrain: {planet.terrain}</li>
+            <li>Surface Water: {planet.surface_water}</li>
+          </ul>
+        </div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">Related Information</p>
+          <div className="list-disc list-inside">
+            <div>Residents: <Links links={planet.residents} /></div>
+            <div>Films: <Links links={planet.films} /></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

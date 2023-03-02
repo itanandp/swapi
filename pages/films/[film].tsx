@@ -17,22 +17,36 @@ const FilmPage: NextPage<IProps> = ({ film }) => {
   }
 
   return (
-    <div className='container mx-auto px-2 mt-4'>
-      <NextSeo 
+    <div className="container mx-auto px-2 mt-4 text-white">
+      <NextSeo
         title={film.title}
         description={film.opening_crawl}
       />
-      <h1 className="text-4xl font-bold mb-4">{film.title}</h1>
-      <p>Episode ID: {film.episode_id}</p>
-      <div>Opening Crawl: <p className='p-4 text-yellow-500 italic'>{film.opening_crawl}</p></div>
-      <p>Director: {film.director}</p>
-      <p>Producer: {film.producer}</p>
-      <p>Release Date: {film.release_date}</p>
-      <p>Characters: <Links links={film.characters} /></p>
-      <p>Planets: <Links links={film.planets} /></p>
-      <p>Starships: <Links links={film.starships} /></p>
-      <p>Vehicles: <Links links={film.vehicles} /></p>
-      <p>Species: <Links links={film.species} /></p>
+      <div className="p-4 mb-4">
+        <h1 className="text-4xl font-bold text-yellow-400 mb-2">{film.title}</h1>
+        <p className='italic text-yellow-400'>{film.opening_crawl}</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">General Information</p>
+          <ul className="list-disc list-inside">
+            <li>Episode ID: {film.episode_id}</li>
+            <li>Director: {film.director}</li>
+            <li>Producer: {film.producer}</li>
+            <li>Release Date: {film.release_date}</li>
+          </ul>
+        </div>
+        <div className="bg-gray-800 rounded-lg shadow-lg p-4">
+          <p className="font-bold text-lg mb-2">Related Information</p>
+          <div className="list-disc list-inside">
+            <div>Characters: <Links links={film.characters} /></div>
+            <div>Planets: <Links links={film.planets} /></div>
+            <div>Starships: <Links links={film.starships} /></div>
+            <div>Vehicles: <Links links={film.vehicles} /></div>
+            <div>Species: <Links links={film.species} /></div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
