@@ -1,10 +1,10 @@
 import Link from "next/link"
-import { IParsedPlanet } from "../types"
+import { IParsedPlanet, IPlanet } from "../types"
 import { parseNumber } from "../utils"
 import { parsePercent } from "../utils"
 
 interface IProps {
-  planets: IParsedPlanet[],
+  planets: IPlanet[],
   columns: string[]
 }
 
@@ -29,7 +29,7 @@ export default function Table({ planets, columns }: IProps) {
         </thead>
 
         <tbody className="divide-y divide-gray-200">
-          {planets.map((planet: IParsedPlanet) => {
+          {planets.map((planet: IPlanet) => {
             const localUrl = planet.url.split('https://swapi.dev/api')[1]
             return (
               <tr key={planet.name}>
