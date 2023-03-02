@@ -3,14 +3,19 @@ import { IParsedPlanet } from "../types"
 import { parseNumber } from "../utils"
 import { parsePercent } from "../utils"
 
-export default function Table({ planets, columns }: any) {
+interface IProps {
+  planets: IParsedPlanet[],
+  columns: string[]
+}
+
+export default function Table({ planets, columns }: IProps) {
   
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y-2 divide-gray-200 text-sm">
         <thead>
           <tr>
-            {columns.map((column: any) => (
+            {columns.map((column: string) => (
               <th
                 key={column}
                 className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-100"
