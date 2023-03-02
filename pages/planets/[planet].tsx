@@ -30,7 +30,7 @@ const PlanetPage: NextPage<IProps> = ({ planet }) => {
       <p>Population: {planet.population} sentient lifeforms</p>
       <p>Climate: {planet.climate}</p>
       <p>Terrain: {planet.terrain}</p>
-      <p>Surface Water: {planet.surface_water}%</p>
+      <p>Surface Water: {planet.surface_water}</p>
       <p>Residents: <Links links={planet.residents} /></p>
       <p>Films: <Links links={planet.films} /></p>
     </div>

@@ -18,9 +18,15 @@ const parseLinks = async (links: string[]) => {
   return data
 }
 
-const parseNumber = (number: string) => {
-  if (number === 'unknown') return 'n/a'
+export const parseNumber = (number: string) => {
+  if (number === 'unknown') return 'unknown'
   return Number(number).toLocaleString()
+}
+
+export const parsePercent = (number: string) => {
+  if (number === 'unknown') return '0%'
+  let num = Number(number).toLocaleString()
+  return `${num}%`
 }
 
 export const parsePlanet = async (planet: IPlanet): Promise<IParsedPlanet> => {
@@ -28,13 +34,15 @@ export const parsePlanet = async (planet: IPlanet): Promise<IParsedPlanet> => {
   const residents = await parseLinks(planet.residents)
   const diameter = parseNumber(planet.diameter)
   const population = parseNumber(planet.population)
+  const surface_water = parsePercent(planet.surface_water)
 
   return {
     ...planet,
     films,
     residents,
     diameter,
-    population
+    population,
+    surface_water
   }
 }
 
