@@ -30,6 +30,7 @@ Caveats/Notes:
 - One of the trade-offs of going with a static site is having to trigger rebuilds or manage fetching new content. can be solved with next's isr or switching to an on request render.
 - There's a bit of code duplication across the individual routes. Some could be solved by combining them and abstracting out logic further, but that could cause issues down the road if we add more types or if the types diverge. This is fine for now as it enabled me to quickly make changes to the individual type pages.
 - I kept the UI pretty barebones in order to prioritize the code and logic around fetching the data and generating pages. If there had been some images or more complicated data to display I would have made the UI a larger focus.
+- Similarly I opted to skip on specs for the utils and parsers due to how simple and small they were, however I would definitely add some before I allowed this project to grow further.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
