@@ -1,3 +1,5 @@
+## About
+
 Live URL: https://anand-swapi.vercel.app/
 
 This project is a minimal front end for the star wars api available at [https://swapi.dev/](https://swapi.dev/) Skip to the bottom for setup and run info.
